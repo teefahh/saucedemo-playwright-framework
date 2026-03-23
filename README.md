@@ -1,70 +1,90 @@
-Step 3: Create README.md
+# Playwright Automation Project (POM Implementation)
 
-# Playwright Project Pack
+This project demonstrates my hands-on practice building a Playwright automation framework using the Page Object Model (POM) design pattern. It focuses on writing maintainable, reusable, and scalable UI automation tests using Playwright.
 
-Complete Playwright test automation framework with real working examples.
+## Key Highlights
+- Implemented Page Object Model (POM) for login and product pages
+- Created reusable locators and methods for UI interactions
+- Structured tests to separate test logic from page interactions
+- Automated core scenarios such as login and product validation
+- Practiced clean and maintainable automation structure
 
-## Setup
+## Tech Stack
+- Playwright
+- TypeScript
+- Node.js
 
-1. Install dependencies:
+## Setup and Running Tests
+
+Install dependencies:
 ```bash
-npm install
-```
-
-2. Copy environment file:
+  npm install
+  cp .env.example .env
+  npx playwright install
+  ````
+  
+Set up environment variables:
 ```bash
-cp .env.example .env
-```
+  cp .env.example .env
+````
 
-3. Install browsers:
+Install Playwright browsers:
 ```bash
-npx playwright install
-```
+  npx playwright install
+````
 
-## Running Tests
-
+Run all tests:
 ```bash
-# Run all tests
-npm test
+  npm test
+````
 
-# Run specific site tests
-npm run test:saucedemo
-npm run test:todomvc
-
-# Run in headed mode
-npm run test:headed
-
-# Run specific browser
-npm run test:chromium
-npm run test:firefox
+Run in specific test suite:
+```bash
+  npm run test:saucedemo
 ```
 
-## Test Sites
-
-- **SauceDemo** - E-commerce demo (https://www.saucedemo.com)
-  - Username: standard_user
-  - Password: secret_sauce
-- **TodoMVC** - Todo application (https://demo.playwright.dev/todomvc)
-- **The Internet** - Various test scenarios (https://the-internet.herokuapp.com)
-
-## Project Structure
-
+Run on specific browsers:
+```bash
+  npm run test:chromium
+  npm run test:firefox
 ```
-├── tests/              # Test files.   
-│   ├── saucedemo.spec.ts
-│   └── todomvc.spec.ts
-├── page-objects/       # Page object models
-├── test-data/          # Test data
-├── utils/              # Helper functions
-│   └── test-data.ts
-├── .env.example        # Environment variables template
-└── playwright.config.ts # Configuration
+Run in headed mode:
+```bash
+  npm run test:headed
 ```
 
-## Writing Tests
+Project Structure:
+```bash
+    Playwright_Practice/
+  ├── pages/
+  │   ├── LoginPage.ts
+  │   └── ProductsPage.ts
+  ├── tests/
+  │   ├── login.spec.ts
+  │   └── products.spec.ts
+  ├── utils/
+  ├── test-data/
+  ├── .env.example
+  ├── playwright.config.ts
+  ├── package.json
+  └── README.md
+```
 
-See individual test files for examples of:
-- Login flows
-- E-commerce checkout
-- Todo management
-- Form interactions
+## Design Approach
+
+This framework follows the Page Object Model (POM) to improve:
+
+Maintainability: Changes to UI elements are handled in one place
+Reusability: Common actions are reused across multiple tests
+Scalability: Easy to extend with more pages and test scenarios
+
+Page classes handle UI interactions, while test files focus on validations and assertions, ensuring clear separation of concerns.
+
+📌 Future Improvements
+Add Cart and Checkout page automation
+Integrate API testing alongside UI automation
+Implement CI/CD pipeline (e.g., GitHub Actions)
+Add reporting (Allure / HTML reports)
+
+## Author:
+Latifat Tobby Yisa
