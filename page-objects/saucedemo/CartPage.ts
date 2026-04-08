@@ -20,6 +20,15 @@ export class CartPage {
     async getCartItemCount(): Promise<number> {
         return await this.cartItems.count();
     }
+    async getCartItemNames(): Promise<string[]> {
+        const items = await this.cartItems.all();
+        const names: string[] = [];
+        for (const item of items) {
+            const name = await item.locator('.inventory_item_name').textContent();
+            if (name) names.push(name);
+        }
+        return names;    
+    }
     async isItemInCart(productName: string): Promise<boolean> {
         const item = this.page.locator('[data-test="inventory-item"]', { hasText: productName });
         return await item.isVisible();
