@@ -30,7 +30,9 @@ export class LoginPage{
     }
 
     async getErrorMessage(): Promise<string> {
-        return await this.errorMessage.textContent() || '';
+        await this.errorMessage.waitFor();
+        return await this.errorMessage.innerText();
+
     }
 
     async isErrorVisible(): Promise<boolean> {
